@@ -1,6 +1,11 @@
 package schemas
 
-import "github.com/gofrs/uuid"
+import (
+	"time"
+
+	"github.com/gofrs/uuid"
+	"github.com/lib/pq"
+)
 
 type CropPlantType int64
 
@@ -66,23 +71,26 @@ const (
 )
 
 type Crop struct {
-	Id              uuid.UUID `json:"id"`
-	Name            string    `json:"name"`
-	Scientific_name string    `json:"scientific_name"`
-	Slug            string    `json:"slug"`
-	Slug_alt        string    `json:"slug_alt"`
-	Ph_min          float32   `json:"ph_min"`
-	Ph_max          float32   `json:"ph_max"`
-	Temp_min        float32   `json:"temp_min"`
-	Temp_max        float32   `json:"temp_max"`
-	Salinity_min    float32   `json:"salinity_min"`
-	Salinity_max    float32   `json:"salinity_max"`
-	Height_min      float32   `json:"height_min"`
-	Height_max      float32   `json:"height_max"`
-	Summary         string    `json:"summary"`
-	Uses            []string  `json:"uses"`
-	// Taxonomy        Taxonomy      `json:"taxonomy"`
-	// Crop_type       CropPlantType `json:"crop_type"`
+	Id              uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()`
+	Name            string
+	Scientific_name string
+	Slug            string
+	Slug_alt        string
+	Ph_min          float32
+	Ph_max          float32
+	Temp_min        float32
+	Temp_max        float32
+	Salinity_min    float32
+	Salinity_max    float32
+	Height_min      float32
+	Height_max      float32
+	Summary         string
+	Uses            pq.StringArray `gorm:"type:text[]"`
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
+
+	// Taxonomy        Taxonomy      `gorm:"type:text[]"`
+	// Crop_type       CropPlantType `gorm:"type:text[]"`
 }
 
 type Taxonomy struct {
