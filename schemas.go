@@ -66,23 +66,23 @@ const (
 )
 
 type Crop struct {
-	Id              uuid.UUID     `json:"id"`
-	Name            string        `json:"name"`
-	Scientific_name string        `json:"scientific_name"`
-	Taxonomy        Taxonomy      `json:"taxonomy"`
-	Crop_type       CropPlantType `json:"crop_type"`
-	Slug            string        `json:"slug"`
-	Slug_alt        string        `json:"slug_alt"`
-	Ph_min          float32       `json:"ph_min"`
-	Ph_max          float32       `json:"ph_max"`
-	Temp_min        float32       `json:"temp_min"`
-	Temp_max        float32       `json:"temp_max"`
-	Salinity_min    float32       `json:"salinity_min"`
-	Salinity_max    float32       `json:"salinity_max"`
-	Height_min      float32       `json:"height_min"`
-	Height_max      float32       `json:"height_max"`
-	Summary         string        `json:"summary"`
-	Uses            []string      `json:"uses"`
+	Id              uuid.UUID `json:"id"`
+	Name            string    `json:"name"`
+	Scientific_name string    `json:"scientific_name"`
+	Slug            string    `json:"slug"`
+	Slug_alt        string    `json:"slug_alt"`
+	Ph_min          float32   `json:"ph_min"`
+	Ph_max          float32   `json:"ph_max"`
+	Temp_min        float32   `json:"temp_min"`
+	Temp_max        float32   `json:"temp_max"`
+	Salinity_min    float32   `json:"salinity_min"`
+	Salinity_max    float32   `json:"salinity_max"`
+	Height_min      float32   `json:"height_min"`
+	Height_max      float32   `json:"height_max"`
+	Summary         string    `json:"summary"`
+	Uses            []string  `json:"uses"`
+	// Taxonomy        Taxonomy      `json:"taxonomy"`
+	// Crop_type       CropPlantType `json:"crop_type"`
 }
 
 type Taxonomy struct {
