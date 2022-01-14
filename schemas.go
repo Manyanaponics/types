@@ -4,7 +4,6 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/lib/pq"
 )
 
 type CropPlantType int64
@@ -85,9 +84,9 @@ type Crop struct {
 	Height_min      float32
 	Height_max      float32
 	Summary         string
-	Uses            pq.StringArray `gorm:"type:text[]"`
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
+	// Uses            pq.StringArray `gorm:"type:text[]"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
 
 	// Taxonomy        Taxonomy      `gorm:"type:text[]"`
 	// Crop_type       CropPlantType `gorm:"type:text[]"`
