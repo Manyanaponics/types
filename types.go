@@ -126,6 +126,7 @@ type Planting struct {
 	SpacingOptimumCM int64
 	NetPotSizeCM     int64
 	DaysGerminating  int64
+	Notes            []string
 	HydroponicType   HydroponicType
 	GrowingMedium    GrowMedium
 }
@@ -153,6 +154,7 @@ type Harvesting struct {
 	HarvestCostHydro              int64
 	AverageCropPriceRetail        int64
 	AverageCropPriceWholesale     int64
+	Notes                         []string
 	HarvestableParts              []HarvestableParts
 }
 
@@ -168,6 +170,7 @@ type Dimensions struct {
 	WaterTemperatureAtRoots int64
 	Height                  int64
 	MaximumWidth            int64
+	Notes                   []string
 }
 
 // ************************************************************************
@@ -198,6 +201,7 @@ type Environment struct {
 	LightSpectrumNmMax    int64
 	LightSpectrumNeedsPar bool
 	LightSpectrumOther    string // eg UV(B) light can enhance production of certain oils
+	Notes                 []string
 }
 
 type CropMaster struct {
