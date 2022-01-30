@@ -81,6 +81,7 @@ const (
 type BasicInfo struct {
 	Name           string
 	ScientificName string
+	Description    string
 	Category       string   // fruit / vegetables / herb
 	SubCategory    string   // leafy_and_salad_vegetables / pomes
 	Notes          string   // Array<{name: string; description: string}>
