@@ -98,39 +98,35 @@ type BasicInfo struct {
 // ***** PLANTING *****
 // ************************************************************************
 
-type GrowMedium int64
+type GrowMedium struct {
+	CocoCoir            bool
+	ExpandedClayPellets bool
+	Pebbles             bool
+	Gravel              bool
+	HempFiber           bool
+	Perlite             bool
+	PhenolicFoam        bool
+	Rockwool            bool
+	Sand                bool
+}
 
-const (
-	CocoCoir = iota
-	ExpandedClayPellets
-	Pebbles
-	Gravel
-	HempFiber
-	Perlite
-	PhenolicFoam
-	Rockwool
-	Sand
-)
-
-type HydroponicType int64
-
-const (
-	WickSystems = iota
-	DeepWaterCulture
-	NutrientFilmTechnique
-	EbbAndFlow
-	AeroponicsTowerPressurized
-	AeroponicsTowerTrickle
-	AeroponicsTub
-	DripSystems
-)
+type HydroponicType struct {
+	WickSystems                bool
+	DeepWaterCulture           bool
+	NutrientFilmTechnique      bool
+	EbbAndFlow                 bool
+	AeroponicsTowerPressurized bool
+	AeroponicsTowerTrickle     bool
+	AeroponicsTub              bool
+	DripSystems                bool
+}
 
 type Planting struct {
 	SpacingOptimumCM int64
 	NetPotSizeCM     int64
 	DaysGerminating  int64
-	HydroponicType   []HydroponicType
-	GrowingMedium    []GrowMedium
+	HydroponicType   HydroponicType
+	GrowingMedium    GrowMedium
 }
 
 // ************************************************************************
