@@ -82,15 +82,16 @@ type BasicInfo struct {
 	Name           string
 	ScientificName string
 	Description    string
-	Category       string   // fruit / vegetables / herb
-	SubCategory    string   // leafy_and_salad_vegetables / pomes
-	Notes          string   // Array<{name: string; description: string}>
+	Category       string // fruit / vegetables / herb
+	SubCategory    string // leafy_and_salad_vegetables / pomes
+	Uses           []string
+	Notes          []string // Array<{name: string; description: string}>
 	Popularity     int64    // score out of 100; refers to host country
 	Varieties      []string // eg for onions, show 'red onion, spring onion, green onion, brown onion etc'
 	OtherNames     []OtherNames
 	Lifespan       Season
 	Taxonomy       Taxonomy
-	Recipes        Recipes
+	Recipes        []Recipes
 	CropPlantType  CropPlantType
 	CropSource     CropSource
 }
