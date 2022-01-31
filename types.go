@@ -8,7 +8,7 @@ package types
 
 type OtherNames struct {
 	Lang string
-	Name string
+	Name []string
 }
 
 type Recipes struct {
