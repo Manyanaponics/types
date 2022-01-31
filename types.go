@@ -78,12 +78,17 @@ const (
 	Follicles         CulinaryFruit = 10
 )
 
+type SubCategory struct {
+	Name        string
+	Description string
+}
+
 type BasicInfo struct {
 	Name           string
 	ScientificName string
 	Description    string
 	Category       string // fruit / vegetables / herb
-	SubCategory    string // leafy_and_salad_vegetables / pomes
+	SubCategory    SubCategory
 	Uses           []string
 	Notes          []string // Array<{name: string; description: string}>
 	Popularity     int64    // score out of 100; refers to host country
