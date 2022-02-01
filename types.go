@@ -184,7 +184,7 @@ type Dimensions struct {
 // ************************************************************************
 
 type Environment struct {
-	GrowthZones           int64 // 1-12
+	GrowthZones           string // 1-12
 	TempMin               float64
 	TempMax               float64
 	TempOptimum           float64
