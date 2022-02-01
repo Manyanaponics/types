@@ -207,6 +207,8 @@ type Environment struct {
 	HumidityMax           float64
 	PHMin                 float64
 	PHMax                 float64
+	ECMin                 float64
+	ECMax                 float64
 	PHOptimum             float64
 	LightHoursMin         int64
 	LightHoursMax         int64
