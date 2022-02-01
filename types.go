@@ -83,6 +83,14 @@ type SubCategory struct {
 	Description string
 }
 
+type Lifespan int64
+
+const (
+	Annual Lifespan = iota
+	Biennial
+	Perennial
+)
+
 type BasicInfo struct {
 	Name           string
 	ScientificName string
@@ -94,7 +102,7 @@ type BasicInfo struct {
 	Popularity     int64    // score out of 100; refers to host country
 	Varieties      []string // eg for onions, show 'red onion, spring onion, green onion, brown onion etc'
 	OtherNames     []OtherNames
-	Lifespan       Season
+	Lifespan       Lifespan
 	Taxonomy       Taxonomy
 	Recipes        []Recipes
 	CropPlantType  CropPlantType
