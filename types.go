@@ -7,23 +7,23 @@ package types
 // synonym / english / dutch / spanish / italian
 
 type OtherNames struct {
-	Lang string
-	Name []string
+	Lang string   `json:"Lang"`
+	Name []string `json:"Name"`
 }
 
 type Recipes struct {
-	Name        string
-	Description string
+	Name        string `json:"Name"`
+	Description string `json:"Description"`
 }
 
 type Taxonomy struct {
-	Kingdom string
-	Phylum  string
-	Class   string
-	Order   string
-	Family  string
-	Genus   string
-	Species string
+	Kingdom string `json:"Kingdom"`
+	Phylum  string `json:"Phylum"`
+	Class   string `json:"Class"`
+	Order   string `json:"Order"`
+	Family  string `json:"Family"`
+	Genus   string `json:"Genus"`
+	Species string `json:"Species"`
 }
 
 type Season int64
@@ -79,8 +79,8 @@ const (
 )
 
 type SubCategory struct {
-	Name        string
-	Description string
+	Name        string `json:"Name"`
+	Description string `json:"Description"`
 }
 
 type Lifespan int64
@@ -92,21 +92,21 @@ const (
 )
 
 type BasicInfo struct {
-	Name           string
-	ScientificName string
-	Description    string
-	Category       string // fruit / vegetables / herb
-	SubCategory    SubCategory
-	Uses           []string
-	Notes          []string // Array<{name: string; description: string}>
-	Popularity     int64    // score out of 100; refers to host country
-	Varieties      []string // eg for onions, show 'red onion, spring onion, green onion, brown onion etc'
-	OtherNames     []OtherNames
-	Lifespan       Lifespan
-	Taxonomy       Taxonomy
-	Recipes        []Recipes
-	CropPlantType  CropPlantType
-	CropSource     CropSource
+	Name           string        `json:"Name"`
+	ScientificName string        `json:"ScientificName"`
+	Description    string        `json:"Description"`
+	Category       string        `json:"Category"` // fruit / vegetables / herb
+	SubCategory    SubCategory   `json:"SubCategory"`
+	Uses           []string      `json:"Uses"`
+	Notes          []string      `json:"Notes"`      // Array<{name: string ; description: string }>
+	Popularity     int64         `json:"Popularity"` // score out of 100; refers to host country
+	Varieties      []string      `json:"Varieties"`  // eg for onions, show 'red onion, spring onion, green onion, brown onion etc'
+	OtherNames     []OtherNames  `json:"OtherNames"`
+	Lifespan       Lifespan      `json:"Lifespan"`
+	Taxonomy       Taxonomy      `json:"Taxonomy"`
+	Recipes        []Recipes     `json:"Recipes"`
+	CropPlantType  CropPlantType `json:"CropPlantType"`
+	CropSource     CropSource    `json:"CropSource"`
 }
 
 // ************************************************************************
@@ -114,35 +114,35 @@ type BasicInfo struct {
 // ************************************************************************
 
 type GrowMedium struct {
-	CocoCoir            bool
-	ExpandedClayPellets bool
-	Pebbles             bool
-	Gravel              bool
-	HempFiber           bool
-	Perlite             bool
-	PhenolicFoam        bool
-	Rockwool            bool
-	Sand                bool
+	CocoCoir            bool `json:"CocoCoir"`
+	ExpandedClayPellets bool `json:"ExpandedClayPellets"`
+	Pebbles             bool `json:"Pebbles"`
+	Gravel              bool `json:"Gravel"`
+	HempFiber           bool `json:"HempFiber"`
+	Perlite             bool `json:"Perlite"`
+	PhenolicFoam        bool `json:"PhenolicFoam"`
+	Rockwool            bool `json:"Rockwool"`
+	Sand                bool `json:"Sand"`
 }
 
 type HydroponicType struct {
-	WickSystems                bool
-	DeepWaterCulture           bool
-	NutrientFilmTechnique      bool
-	EbbAndFlow                 bool
-	AeroponicsTowerPressurized bool
-	AeroponicsTowerTrickle     bool
-	AeroponicsTub              bool
-	DripSystems                bool
+	WickSystems                bool `json:"WickSystems"`
+	DeepWaterCulture           bool `json:"DeepWaterCulture"`
+	NutrientFilmTechnique      bool `json:"NutrientFilmTechnique"`
+	EbbAndFlow                 bool `json:"EbbAndFlow"`
+	AeroponicsTowerPressurized bool `json:"AeroponicsTowerPressurized"`
+	AeroponicsTowerTrickle     bool `json:"AeroponicsTowerTrickle"`
+	AeroponicsTub              bool `json:"AeroponicsTub"`
+	DripSystems                bool `json:"DripSystems"`
 }
 
 type Planting struct {
-	SpacingOptimumCM int64
-	NetPotSizeCM     int64
-	DaysGerminating  int64
-	Notes            []string
-	HydroponicType   HydroponicType
-	GrowingMedium    GrowMedium
+	SpacingOptimumCM int64          `json:"SpacingOptimumCM"`
+	NetPotSizeCM     int64          `json:"NetPotSizeCM"`
+	DaysGerminating  int64          `json:"DaysGerminating"`
+	Notes            []string       `json:"DaysToHarvestEarliestNonHydro"`
+	HydroponicType   HydroponicType `json:"HydroponicType"`
+	GrowingMedium    GrowMedium     `json:"GrowingMedium"`
 }
 
 // ************************************************************************
@@ -160,16 +160,16 @@ const (
 )
 
 type Harvesting struct {
-	DaysToHarvestEarliestNonHydro int64
-	DaysToHarvestEarliestHydro    int64
-	DaysToHarvestNonHydro         int64
-	DaysToHarvestHydro            int64
-	HarvestCostNonHydro           int64
-	HarvestCostHydro              int64
-	AverageCropPriceRetail        int64
-	AverageCropPriceWholesale     int64
-	Notes                         []string
-	HarvestableParts              []HarvestableParts
+	DaysToHarvestEarliestNonHydro int64              `json:"DaysToHarvestEarliestNonHydro"`
+	DaysToHarvestEarliestHydro    int64              `json:"DaysToHarvestEarliestHydro"`
+	DaysToHarvestNonHydro         int64              `json:"DaysToHarvestNonHydro"`
+	DaysToHarvestHydro            int64              `json:"DaysToHarvestHydro"`
+	HarvestCostNonHydro           int64              `json:"HarvestCostNonHydro"`
+	HarvestCostHydro              int64              `json:"HarvestCostHydro"`
+	AverageCropPriceRetail        int64              `json:"AverageCropPriceRetail"`
+	AverageCropPriceWholesale     int64              `json:"AverageCropPriceWholesale"`
+	Notes                         []string           `json:"Notes"`
+	HarvestableParts              []HarvestableParts `json:"HarvestableParts"`
 }
 
 // ************************************************************************
@@ -178,13 +178,13 @@ type Harvesting struct {
 
 // all values are average
 type Dimensions struct {
-	HarvestWeightNonHydro   int64
-	HarvestWeightHydro      int64
-	SquareMetersPerUnit     int64
-	WaterTemperatureAtRoots int64
-	Height                  int64
-	MaximumWidth            int64
-	Notes                   []string
+	HarvestWeightNonHydro   int64    `json:"HarvestWeightNonHydro"`
+	HarvestWeightHydro      int64    `json:"HarvestWeightHydro"`
+	SquareMetersPerUnit     int64    `json:"SquareMetersPerUnit"`
+	WaterTemperatureAtRoots int64    `json:"WaterTemperatureAtRoots"`
+	Height                  int64    `json:"Height"`
+	MaximumWidth            int64    `json:"MaximumWidth"`
+	Notes                   []string `json:"Notes"`
 }
 
 // ************************************************************************
@@ -192,38 +192,38 @@ type Dimensions struct {
 // ************************************************************************
 
 type Environment struct {
-	GrowthZones           string // 1-12
-	TempMin               float64
-	TempMax               float64
-	TempOptimum           float64
-	RootTempMin           float64 // For most case this will default to temp_optimum, but roots can be sensitive
-	RootTempMax           float64
-	RootTempOptimum       float64
-	OxygenMin             float64
-	OxygenOptimum         float64
-	Co2Min                float64
-	Co2Optimum            float64
-	HumidityMin           float64
-	HumidityMax           float64
-	PHMin                 float64
-	PHMax                 float64
-	ECMin                 float64
-	ECMax                 float64
-	PHOptimum             float64
-	LightHoursMin         int64
-	LightHoursMax         int64
-	LightHoursOptimum     int64
-	LightSpectrumNmMin    int64
-	LightSpectrumNmMax    int64
-	LightSpectrumNeedsPar bool
-	LightSpectrumOther    string // eg UV(B) light can enhance production of certain oils
-	Notes                 []string
+	GrowthZones           string   `json:"GrowthZones"` // 1-12
+	TempMin               float64  `json:"TempMin"`
+	TempMax               float64  `json:"TempMax"`
+	TempOptimum           float64  `json:"TempOptimum"`
+	RootTempMin           float64  `json:"RootTempMin"` // For most case this will default to temp_optimum, but roots can be sensitive
+	RootTempMax           float64  `json:"RootTempMax"`
+	RootTempOptimum       float64  `json:"RootTempOptimum"`
+	OxygenMin             float64  `json:"OxygenMin"`
+	OxygenOptimum         float64  `json:"OxygenOptimum"`
+	Co2Min                float64  `json:"Co2Min"`
+	Co2Optimum            float64  `json:"Co2Optimum"`
+	HumidityMin           float64  `json:"HumidityMin"`
+	HumidityMax           float64  `json:"HumidityMax"`
+	PHMin                 float64  `json:"PHMin"`
+	PHMax                 float64  `json:"PHMax"`
+	ECMin                 float64  `json:"ECMin"`
+	ECMax                 float64  `json:"ECMax"`
+	PHOptimum             float64  `json:"PHOptimum"`
+	LightHoursMin         int64    `json:"LightHoursMin"`
+	LightHoursMax         int64    `json:"LightHoursMax"`
+	LightHoursOptimum     int64    `json:"LightHoursOptimum"`
+	LightSpectrumNmMin    int64    `json:"LightSpectrumNmMin"`
+	LightSpectrumNmMax    int64    `json:"LightSpectrumNmMax"`
+	LightSpectrumNeedsPar bool     `json:"LightSpectrumNeedsPar"`
+	LightSpectrumOther    string   `json:"LightSpectrumOther"` // eg UV(B) light can enhance production of certain oils
+	Notes                 []string `json:"Notes"`
 }
 
 type CropMaster struct {
-	BasicInfo   BasicInfo
-	Planting    Planting
-	Harvesting  Harvesting
-	Dimensions  Dimensions
-	Environment Environment
+	BasicInfo   BasicInfo   `json:"BasicInfo"`
+	Planting    Planting    `json:"Planting"`
+	Harvesting  Harvesting  `json:"Harvesting"`
+	Dimensions  Dimensions  `json:"Dimensions"`
+	Environment Environment `json:"Environment"`
 }
