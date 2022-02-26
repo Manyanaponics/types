@@ -1,5 +1,7 @@
 package types
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
 // ************************************************************************
 // ***** BASIC *****
 // ************************************************************************
@@ -221,9 +223,10 @@ type Environment struct {
 }
 
 type CropMaster struct {
-	BasicInfo   BasicInfo   `json:"BasicInfo"`
-	Planting    Planting    `json:"Planting"`
-	Harvesting  Harvesting  `json:"Harvesting"`
-	Dimensions  Dimensions  `json:"Dimensions"`
-	Environment Environment `json:"Environment"`
+	ID          primitive.ObjectID `bson:"_id,omitempty"`
+	BasicInfo   BasicInfo          `json:"BasicInfo"`
+	Planting    Planting           `json:"Planting"`
+	Harvesting  Harvesting         `json:"Harvesting"`
+	Dimensions  Dimensions         `json:"Dimensions"`
+	Environment Environment        `json:"Environment"`
 }
