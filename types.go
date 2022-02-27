@@ -28,15 +28,6 @@ type Taxonomy struct {
 	Species string `json:"Species"`
 }
 
-type Season int64
-
-const (
-	Summer Season = iota
-	Autumn
-	Winter
-	Spring
-)
-
 type CropPlantType int64
 
 const (
@@ -88,27 +79,27 @@ type SubCategory struct {
 type Lifespan int64
 
 const (
-	Annual Lifespan = iota
-	Biennial
-	Perennial
+	Annual    Lifespan = 0
+	Biennial  Lifespan = 1
+	Perennial Lifespan = 2
 )
 
 type BasicInfo struct {
-	Name           string        `json:"Name"`
-	ScientificName string        `json:"ScientificName"`
-	Description    string        `json:"Description"`
-	Category       string        `json:"Category"` // fruit / vegetables / herb
-	SubCategory    SubCategory   `json:"SubCategory"`
-	Uses           []string      `json:"Uses"`
-	Notes          []string      `json:"Notes"`      // Array<{name: string ; description: string }>
-	Popularity     int64         `json:"Popularity"` // score out of 100; refers to host country
-	Varieties      []string      `json:"Varieties"`  // eg for onions, show 'red onion, spring onion, green onion, brown onion etc'
-	OtherNames     []OtherNames  `json:"OtherNames"`
-	Lifespan       Lifespan      `json:"Lifespan"`
-	Taxonomy       Taxonomy      `json:"Taxonomy"`
-	Recipes        []Recipes     `json:"Recipes"`
-	CropPlantType  CropPlantType `json:"CropPlantType"`
-	CropSource     CropSource    `json:"CropSource"`
+	Name           string       `json:"Name"`
+	ScientificName string       `json:"ScientificName"`
+	Description    string       `json:"Description"`
+	Category       string       `json:"Category"` // fruit / vegetables / herb
+	SubCategory    SubCategory  `json:"SubCategory"`
+	Uses           []string     `json:"Uses"`
+	Notes          []string     `json:"Notes"`      // Array<{name: string ; description: string }>
+	Popularity     int64        `json:"Popularity"` // score out of 100; refers to host country
+	Varieties      []string     `json:"Varieties"`  // eg for onions, show 'red onion, spring onion, green onion, brown onion etc'
+	OtherNames     []OtherNames `json:"OtherNames"`
+	Lifespan       int          `json:"Lifespan"`
+	Taxonomy       Taxonomy     `json:"Taxonomy"`
+	Recipes        []Recipes    `json:"Recipes"`
+	CropPlantType  int          `json:"CropPlantType"`
+	CropSource     int          `json:"CropSource"`
 }
 
 // ************************************************************************
@@ -162,16 +153,16 @@ const (
 )
 
 type Harvesting struct {
-	DaysToHarvestEarliestNonHydro int64              `json:"DaysToHarvestEarliestNonHydro"`
-	DaysToHarvestEarliestHydro    int64              `json:"DaysToHarvestEarliestHydro"`
-	DaysToHarvestNonHydro         int64              `json:"DaysToHarvestNonHydro"`
-	DaysToHarvestHydro            int64              `json:"DaysToHarvestHydro"`
-	HarvestCostNonHydro           int64              `json:"HarvestCostNonHydro"`
-	HarvestCostHydro              int64              `json:"HarvestCostHydro"`
-	AverageCropPriceRetail        int64              `json:"AverageCropPriceRetail"`
-	AverageCropPriceWholesale     int64              `json:"AverageCropPriceWholesale"`
-	Notes                         []string           `json:"Notes"`
-	HarvestableParts              []HarvestableParts `json:"HarvestableParts"`
+	DaysToHarvestEarliestNonHydro int64    `json:"DaysToHarvestEarliestNonHydro"`
+	DaysToHarvestEarliestHydro    int64    `json:"DaysToHarvestEarliestHydro"`
+	DaysToHarvestNonHydro         int64    `json:"DaysToHarvestNonHydro"`
+	DaysToHarvestHydro            int64    `json:"DaysToHarvestHydro"`
+	HarvestCostNonHydro           int64    `json:"HarvestCostNonHydro"`
+	HarvestCostHydro              int64    `json:"HarvestCostHydro"`
+	AverageCropPriceRetail        int64    `json:"AverageCropPriceRetail"`
+	AverageCropPriceWholesale     int64    `json:"AverageCropPriceWholesale"`
+	Notes                         []string `json:"Notes"`
+	HarvestableParts              []int    `json:"HarvestableParts"`
 }
 
 // ************************************************************************
