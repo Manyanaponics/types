@@ -1,6 +1,9 @@
 package types
 
-import "go.mongodb.org/mongo-driver/bson/primitive"
+import (
+	"github.com/tkrajina/typescriptify-golang-structs/typescriptify"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
 
 // ************************************************************************
 // ***** BASIC *****
@@ -185,7 +188,7 @@ type Dimensions struct {
 // ************************************************************************
 
 type Environment struct {
-	GrowthZones           string   `json:"GrowthZones"` // 1-12
+	GrowthZones           int64    `json:"GrowthZones"` // 1-12
 	TempMin               float64  `json:"TempMin"`
 	TempMax               float64  `json:"TempMax"`
 	TempOptimum           float64  `json:"TempOptimum"`
@@ -220,4 +223,14 @@ type CropMaster struct {
 	Harvesting  Harvesting         `json:"Harvesting"`
 	Dimensions  Dimensions         `json:"Dimensions"`
 	Environment Environment        `json:"Environment"`
+}
+
+func main() {
+	converter := typescriptify.New().
+		Add(CropMaster{})
+
+	err := converter.ConvertToFile("ts/models.ts")
+	if err != nil {
+		panic(err.Error())
+	}
 }
