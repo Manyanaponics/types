@@ -188,7 +188,8 @@ type Dimensions struct {
 // ************************************************************************
 
 type Environment struct {
-	GrowthZones           int64    `json:"GrowthZones"` // 1-12
+	GrowthZonesMin        int64    `json:"GrowthZonesMin"` // 1-12
+	GrowthZonesMax        int64    `json:"GrowthZonesMax"` // 1-12
 	TempMin               float64  `json:"TempMin"`
 	TempMax               float64  `json:"TempMax"`
 	TempOptimum           float64  `json:"TempOptimum"`
